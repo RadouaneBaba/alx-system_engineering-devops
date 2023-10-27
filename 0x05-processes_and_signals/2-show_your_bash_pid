@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# display only lines with bash word
+# shellcheck disable=SC2009
+ps -ut? | grep "bash"
