@@ -1,9 +1,3 @@
 #!/usr/bin/env bash
 # display pid and name of base
-for id in $(pidof bash)
-do
-	if ((id != 1))
-	then
-		echo "$id bash"
-	fi
-done
+pgrep -l bash
