@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# ipv4 active only
+ifconfig | grep "netmask" | cut -d " " -f 10
