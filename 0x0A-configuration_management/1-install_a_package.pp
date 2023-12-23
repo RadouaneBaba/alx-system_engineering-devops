@@ -1,5 +1,5 @@
 # install flask from pip3
 
-exec {
+exec {'flask':
   command => 'pip3 install Flask'
 }
