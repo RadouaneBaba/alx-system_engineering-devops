@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# redirection to my github
+sudo apt-get update
+sudo apt-get -y install nginx
+
+echo '<!DOCTYPE html><html><head><title>Hello</title></head><body>Hello World!</body></html>' | sudo tee /var/www/html/index.html > /dev/null
+
+added_location="\tlocation /redirect_me {\n\t\t return 301 https:\/\/github.com\/RadouaneBaba;\n\t}"
+
+sudo sed -i "/server_name _;/a $added_location" /etc/nginx/sites-enabled/default
+
+sudo service nginx restart
