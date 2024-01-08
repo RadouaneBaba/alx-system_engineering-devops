@@ -7,6 +7,6 @@ echo 'Hello World!' | sudo tee /var/www/html/index.html > /dev/null
 
 added_location="\tlocation \/redirect_me {\n\t\treturn 301 https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4;\n\t}"
 
-sudo sed -i "/server_name _;/a $added_location" /etc/nginx/sites-available/default
+sudo sed -i "/^}$/i \ $added_location" /etc/nginx/sites-available/default
 
-sudo service nginx restart
+sudo service nginx start
