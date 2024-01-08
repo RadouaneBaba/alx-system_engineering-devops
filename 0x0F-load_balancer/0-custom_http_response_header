@@ -9,7 +9,7 @@ echo 'Hello World!' | sudo tee /var/www/html/index.html > /dev/null
 # redirection
 added_location="\tlocation \/redirect_me {\n\t\t return 301 https:\/\/github.com\/RadouaneBaba;\n\t}"
 
-sudo sed -i "/server_name _;/a\ $added_location" /etc/nginx/sites-available/default
+sudo sed -i "/server_name _;/a\ $added_location" /etc/nginx/sites-enabled/default
 
 # 404 custom
 
@@ -17,11 +17,11 @@ echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.html 
 
 error_404="\terror_page 404 \/custom_404.html;\n\tlocation = \/custom_404.html {\n\t\troot \/usr\/share\/nginx\/html;\n\t\tinternal;\n\t}"
 
-sudo sed -i "/server_name _;/a\ $error_404" /etc/nginx/sites-available/default
+sudo sed -i "/server_name _;/a\ $error_404" /etc/nginx/sites-enabled/default
 
 # shellcheck disable=SC2154
 # custom http
-sudo sed -i "/server_name _;/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default
+sudo sed -i "/server_name _;/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
 
 
 # start nginx
