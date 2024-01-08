@@ -18,3 +18,4 @@ frontend http
 echo "$config" | sudo tee -a /etc/haproxy/haproxy.cfg > /dev/null
 
 sudo systemctl restart haproxy
+sudo systemctl enable haproxy
