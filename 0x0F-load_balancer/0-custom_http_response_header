@@ -21,7 +21,7 @@ sudo sed -i "/server_name _;/a\ $error_404" /etc/nginx/sites-enabled/default
 
 # shellcheck disable=SC2154
 # custom http
-sudo sed -i "/server_name _;/a\ 	add_header X-Served-By '$HOSTNAME';" /etc/nginx/sites-enabled/default
+sudo sed -i "/try_files/i \ 	add_header X-Served-By '$HOSTNAME';" /etc/nginx/sites-enabled/default
 
 # start nginx
 sudo service nginx restart
