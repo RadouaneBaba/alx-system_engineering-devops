@@ -21,7 +21,7 @@ error_404="\terror_page 404 \/custom_404.html;\n\tlocation = \/custom_404.html {
 sudo sed -i "/server_name _;/a\ $error_404" /etc/nginx/sites-enabled/default
 
 # custom http
-sudo sed -i "/server_name _;/a\ add_header X-Served-By \"$HOSTNAME\";" /etc/nginx/sites-enabled/default
+sudo sed -i "/server_name _;/a\ 	add_header X-Served-By $hostname;" /etc/nginx/sites-enabled/default
 
 # start nginx
 sudo service nginx start
