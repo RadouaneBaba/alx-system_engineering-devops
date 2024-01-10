@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# something
+apt-get -y install nginx
