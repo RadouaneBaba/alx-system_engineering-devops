@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# display info about subdomain
+# shellcheck disable=SC2086
+print_sub() {
+	result=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | tail -n 1)
+	echo -n "The subdomain $2"
+	echo "$result" | awk '{print " is a", $4, "record and points to", $5}'
+}
+info () {
+	if [ -z "$2" ]
+	then
+		for s in "www" "lb-01" "web-01" "web-02"
+		do
+			print_sub $1 $s
+		done
+	else
+		print_sub $1 $2
+	fi
+}
+
+info $1 $2
