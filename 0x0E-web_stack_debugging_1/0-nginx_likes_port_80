@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# something
-sudo apt-get -y install nginx
-sudo service nginx start
+# fixing nginx
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx restart
