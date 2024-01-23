@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# switch to another user
+su -c "whoami" "$1"
