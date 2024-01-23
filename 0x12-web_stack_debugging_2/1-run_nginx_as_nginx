@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # change nginx user
 added_text="user nginx;\n"
-chmod +r /etc/nginx/nginx.conf
+chmod 644 /etc/nginx/nginx.conf
 sed -i "1s/^/$added_text/" /etc/nginx/nginx.conf
 sed -i 's/listen 80/8080/g' /etc/nginx/sites-available/default
-sudo -u nginx service nginx start
+sudo -u nginx service nginx restart
