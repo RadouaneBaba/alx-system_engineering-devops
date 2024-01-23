@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# change nginx user
+added_text="user nginx;\n"
+chmod +r /etc/nginx/nginx.conf
+sed -i "1s/^/$added_text/" /etc/nginx/nginx.conf
+sed -i 's/listen 80/listen 8080/' /etc/nginx/sites-available/default
+sed -i 's/listen [::]:80/ listen [::]:8080/' /etc/nginx/sites-available/default
+service nginx stop
+sudo -u nginx service nginx restart
