@@ -1,1 +1,1 @@
-My SQL replica
+mysql master replica
