@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# archive mysql dump file
+mysqldump -u root -p"$1" --all-databases > backup.sql
+curr_date=$(date '+%d-%m-%Y')
+tar -czvf "$curr_date.tar.gz" backup.sql
