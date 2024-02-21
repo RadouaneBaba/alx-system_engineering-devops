@@ -1,0 +1,21 @@
+server {
+        listen 80;
+        server_name 54.146.94.206;
+
+
+        location /airbnb-onepage {
+                include proxy_params;
+                proxy_pass http://0.0.0.0:5000;
+        }
+        add_header X-Served-By "382051-web-01";
+
+        location ~ ^/airbnb-dynamic/number_odd_or_even/([0-9]+)$ {
+                include proxy_params;
+                proxy_pass http://0.0.0.0:5001/number_odd_or_even/$1;
+        }
+
+        location /api {
+                include proxy_params;
+                proxy_pass http://0.0.0.0:5002;
+        }
+}
