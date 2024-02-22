@@ -3,9 +3,9 @@ server {
         server_name 54.146.94.206;
 
 
-        location /airbnb-onepage {
+        location /airbnb-onepage/ {
                 include proxy_params;
-                proxy_pass http://0.0.0.0:5000;
+                proxy_pass http://0.0.0.0:5000/airbnb-onepage/;
         }
         add_header X-Served-By "382051-web-01";
 }
